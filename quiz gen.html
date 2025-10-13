@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      text-align: center;
+      padding: 30px;
+    }
+    .quiz-box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+      width: 300px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      background: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="quiz-box">
+    <h2 id="question">Question text</h2>
+    <div id="answers"></div>
+    <button id="nextBtn">Next</button>
+    <h3 id="result"></h3>
+  </div>
+
+  <script>
+    const quiz = [
+      {
+        question: "What does HTML stand for?",
+        answers: ["HyperText Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language"],
+        correct: 0
+      },
+      {
+        question: "What does CSS stand for?",
+        answers: ["Colorful Style Sheets", "Cascading Style Sheets", "Creative Styling Syntax"],
+        correct: 1
+      },
+      {
+        question: "Which tag is used for JavaScript?",
+        answers: ["<script>", "<js>", "<javascript>"],
+        correct: 0
+      }
+    ];
+
+    let index = 0;
+    let score = 0;
+
+    const questionEl = document.getElementById("question");
+    const answersEl = document.getElementById("answers");
+    const resultEl = document.getElementById("result");
+    const nextBtn = document.getElementById("nextBtn");
+
+    function showQuestion() {
+      const q = quiz[index];
+      questionEl.textContent = q.question;
+      answersEl.innerHTML = "";
+      resultEl.textContent = "";
+
+      q.answers.forEach((ans, i) => {
+        const btn = document.createElement("button");
+        btn.textContent = ans;
+        btn.onclick = () => checkAnswer(i);
+        answersEl.appendChild(btn);
+      });
+    }
+
+    function checkAnswer(i) {
+      if (i === quiz[index].correct) {
+        score++;
+        resultEl.textContent = "✅ Correct!";
+      } else {
+        resultEl.textContent = "❌ Wrong!";
+      }
+      nextBtn.style.display = "block";
+    }
+
+    nextBtn.onclick = () => {
+      index++;
+      if (index < quiz.length) {
+        showQuestion();
+        nextBtn.style.display = "none";
+      } else {
+        questionEl.textContent = "Quiz Over!";
+        answersEl.innerHTML = "";
+        resultEl.textContent = `You scored ${score} / ${quiz.length}`;
+        nextBtn.style.display = "none";
+      }
+    };
+
+    showQuestion();
+    nextBtn.style.display = "none";
+  </script>
+
+</body>
+</html>

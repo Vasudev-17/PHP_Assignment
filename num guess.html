@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Number Guessing Game</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    #message { margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Number Guessing Game</h1>
+  <p>Guess the number between 1 and 100. You have 7 attempts.</p>
+  <input type="number" id="userGuess" placeholder="Enter your guess" min="1" max="100" />
+  <button onclick="checkGuess()">Guess</button>
+  <div id="message"></div>
+  <div>Attempts left: <span id="attemptsLeft">7</span></div>
+  <button onclick="resetGame()">Reset Game</button>
+
+  <script>
+    let randomNumber;
+    let attempts = 7;
+    let attemptsLeft = attempts;
+    
+    function generateRandomNumber() {
+      return Math.floor(Math.random() * 100) + 1;
+    }
+    
+    function resetGame() {
+      randomNumber = generateRandomNumber();
+      attemptsLeft = attempts;
+      document.getElementById('message').textContent = '';
+      document.getElementById('attemptsLeft').textContent = attemptsLeft;
+      document.getElementById('userGuess').value = '';
+    }
+    
+    function checkGuess() {
+      const userGuess = Number(document.getElementById('userGuess').value);
+      const messageDiv = document.getElementById('message');
+      
+      if (!userGuess || userGuess < 1 || userGuess > 100) {
+        messageDiv.textContent = 'Please enter a valid number between 1 and 100.';
+        return;
+      }
+      
+      attemptsLeft--;
+      document.getElementById('attemptsLeft').textContent = attemptsLeft;
+      
+      if (userGuess === randomNumber) {
+        messageDiv.textContent = Congratulations! You guessed the number ${randomNumber} correctly!;
+        attemptsLeft = 0;
+      } else if (attemptsLeft === 0) {
+        messageDiv.textContent = Game over! You've used all attempts. The number was ${randomNumber}.;
+      } else if (userGuess < randomNumber) {
+        messageDiv.textContent = 'Too low! Try again.';
+      } else {
+        messageDiv.textContent = 'Too high! Try again.';
+      }
+
+      if (attemptsLeft === 0) {
+        document.getElementById('userGuess').disabled = true;
+      }
+    }
+    
+    resetGame();
+  </script>
+</body>
+</html>
