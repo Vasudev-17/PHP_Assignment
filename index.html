@@ -2,87 +2,67 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PHP Assignment</title>
   <style>
-    /* General Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
       font-family: "Poppins", Arial, sans-serif;
-      background: linear-gradient(135deg, #d4fc79, #96e6a1);
+      background-color: #121212;
+      color: #f5f5f5;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      text-align: center;
+      margin: 0;
     }
 
     .container {
-      background: #fff;
+      background-color: #1e1e1e;
       padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      text-align: center;
       width: 90%;
       max-width: 400px;
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
 
     h1 {
-      color: #2e8b57;
+      color: #00bfa6;
       font-size: 26px;
       margin-bottom: 25px;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+      letter-spacing: 1px;
     }
 
     button {
       display: block;
       width: 100%;
-      margin: 10px 0;
-      padding: 12px;
-      background: #2e8b57;
+      background-color: #00bfa6;
       color: white;
       border: none;
       border-radius: 8px;
+      padding: 12px;
+      margin: 10px 0;
       font-size: 16px;
-      transition: all 0.3s ease;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
     button:hover {
-      background: #3cb371;
-      transform: scale(1.05);
-      box-shadow: 0 4px 10px rgba(46, 139, 87, 0.3);
+      background-color: #009e8c;
     }
 
     footer {
       margin-top: 20px;
       font-size: 14px;
-      color: #555;
+      color: #aaa;
     }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <h1>🌿 PHP ASSIGNMENT 🌿</h1>
+    <h1>PHP ASSIGNMENT</h1>
     <button onclick="location.href='todo.html'">📝 To-Do List</button>
     <button onclick="location.href='calculator1.html'">🧮 Calculator</button>
     <button onclick="location.href='num guess.html'">🎯 Number Guessing Game</button>
