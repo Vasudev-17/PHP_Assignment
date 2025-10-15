@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PHP Assignment</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      background: linear-gradient(135deg, #d4fc79, #96e6a1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 400px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      color: #2e8b57;
+      font-size: 26px;
+      margin-bottom: 25px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px;
+      background: #2e8b57;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #3cb371;
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(46, 139, 87, 0.3);
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>🌿 PHP ASSIGNMENT 🌿</h1>
+    <button onclick="location.href='todo.html'">📝 To-Do List</button>
+    <button onclick="location.href='calculator1.html'">🧮 Calculator</button>
+    <button onclick="location.href='num guess.html'">🎯 Number Guessing Game</button>
+    <button onclick="location.href='quiz gen.html'">❓ Quiz</button>
+    <button onclick="location.href='number generator.html'">🔐 Password Generator</button>
+    <footer>Designed by Vasudev</footer>
+  </div>
+</body>
+
+</html>
